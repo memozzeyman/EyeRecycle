@@ -2,11 +2,16 @@ from flask import Flask, request, jsonify
 from fastai.basic_train import load_learner
 from fastai.vision import open_image
 from flask_cors import CORS,cross_origin
+
+from fastai.tabular.model import TabularModel
+from fastai.tabular.learner import TabularLearner
+from fastai.layers import MSELossFlat
+from fastai.torch_core import flatten_check
 app = Flask(__name__)
 CORS(app, support_credentials=True)
 
 # load the learner
-learn = load_learner(path='./models', file='eye_recycle_trained_model.pkl')
+learn = load_learner(path='.', file='eye_recycle_trained_model.pkl')
 classes = learn.data.classes
 
 
