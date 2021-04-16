@@ -1,5 +1,5 @@
 Flask
 gunicorn
-fastaiv1
+fastai >= 1.0.0 
 torch
 flask_cors
