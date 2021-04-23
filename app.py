@@ -11,7 +11,7 @@ CORS(app, support_credentials=True)
 learn = load_learner(path='.', file='eye_recycle_trained_model.pkl')
 classes = learn.data.classes
 
-    image_resize = open.image(img_file)
+    image = image.open(img_file)
     image_resized = image.resize((512, 384))
     image_resized.save('image_resized.jpg')
  
