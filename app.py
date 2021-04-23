@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from fastai.basic_train import load_learner
 from fastai.vision import open_image
 from flask_cors import CORS, cross_origin
+from PIL import Image
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
@@ -10,10 +11,14 @@ CORS(app, support_credentials=True)
 learn = load_learner(path='.', file='eye_recycle_trained_model.pkl')
 classes = learn.data.classes
 
-
-def predict_single(img_file):
+    image_resize = open.image(img_file)
+    image_resized = image.resize((512, 384))
+    image_resized.save('image_resized.jpg')
+ 
+    def predict_single(image_resized):
     "function to take image and return prediction"
-    prediction = learn.predict(open_image(img_file))
+    prediction = learn.predict(image_resized)
+    
     
     probs_list = prediction[2].numpy()
     return {
