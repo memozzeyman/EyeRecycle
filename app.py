@@ -11,13 +11,9 @@ learn = load_learner(path='.', file='eye_recycle_trained_model.pkl')
 classes = learn.data.classes
 
 
-def predict_single(img_resize):
-    'function to take image and return prediction'
-    prediction = learn.predict(image_resize)
-    
-    image_resize =
-    open_image(img_file)
-    img.resize(512,384)
+def predict_single(img_file):
+    "function to take image and return prediction"
+    prediction = learn.predict(open_image(img_file.resize(512,384))
     
     probs_list = prediction[2].numpy()
     return {
