@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from fastai.basic_train import load_learner
 from fastai.vision import open_image
-from flask_cors import CORS,cross_origin
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
@@ -13,7 +13,7 @@ classes = learn.data.classes
 
 def predict_single(img_file):
     "function to take image and return prediction"
-    prediction = learn.predict(open_image(img_file.resize(512,384))
+    prediction = learn.predict(open_image(img_file))
     
     probs_list = prediction[2].numpy()
     return {
