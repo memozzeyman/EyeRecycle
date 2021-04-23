@@ -16,10 +16,8 @@ image_resized = image.resize((512, 384))
 image_resized.save('image_resized.jpg')
  
 def predict_single(image_resized):
-"function to take image and return prediction"
-prediction = learn.predict(image_resized)
-    
-    
+    "function to take image and return prediction"
+    prediction = learn.predict(image_resized)
     probs_list = prediction[2].numpy()
     return {
         'category': classes[prediction[1].item()],
