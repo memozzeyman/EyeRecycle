@@ -11,13 +11,13 @@ CORS(app, support_credentials=True)
 learn = load_learner(path='.', file='eye_recycle_trained_model.pkl')
 classes = learn.data.classes
 
-image = Image.open(img_file)
-image_resized = image.resize((512, 384))
-image_resized.save('image_resized.jpg')
  
-def predict_single(image_resized):
+def predict_single(img_file):
     "function to take image and return prediction"
-    prediction = learn.predict(image_resized)
+    image = Image.open(img_file)
+    image_resized = image.resize((512, 384))
+    image_resized.save('image_resized.jpg')
+    prediction = learn.predict(open_image(img_file))
     probs_list = prediction[2].numpy()
     return {
         'category': classes[prediction[1].item()],
