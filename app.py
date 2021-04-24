@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app, support_credentials=True)
 
 # load the learner
-learn = load_learner(path='.', file='eye_recycle_trained_modelfinal.pkl')
+learn = load_learner(path='.', file='modelcmon.pkl')
 classes = learn.data.classes
 
  
